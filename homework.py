@@ -1,3 +1,6 @@
+from typing import List
+
+
 class InfoMessage:
     """Информационное сообщение о тренировке."""
     def __init__(self,
@@ -144,15 +147,16 @@ class Swimming(Training):
         return calories
 
 
-def read_package(workout_type: str, data: list[int]) -> Training:
+def read_package(workout_type: str, data: List[int]) -> Training:
     """Прочитать данные полученные от датчиков."""
     WORKOUT: dict = {
         'SWM': Swimming,
         'RUN': Running,
         'WLK': SportsWalking
     }
-    if workout_type in WORKOUT:
-        return WORKOUT[workout_type](*data)
+    if workout_type not in WORKOUT:
+        raise TypeError("Не определен.")
+    return WORKOUT[workout_type](*data)
 
 
 def main(training: Training) -> None:
