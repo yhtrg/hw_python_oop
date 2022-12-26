@@ -21,8 +21,6 @@ class InfoMessage:
                 f'Потрачено ккал: {self.calories:.3f}.')
 
 
-
-
 class Training:
     """Базовый класс тренировки."""
     LEN_STEP: float = 0.65
@@ -60,8 +58,7 @@ class Training:
                            self.get_distance(),
                            self.get_mean_speed(),
                            self.get_spent_calories())
-        
-        
+
 
 class Running(Training):
     """Тренировка: бег."""
